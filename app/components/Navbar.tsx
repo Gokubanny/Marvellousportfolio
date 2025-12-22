@@ -26,7 +26,7 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ];
 
-  const scrollToSection = (href: string) => {
+  const scrollToSection = (href) => {
     const element = document.querySelector(href);
     element?.scrollIntoView({ behavior: "smooth" });
     setIsMobileMenuOpen(false);
@@ -45,13 +45,36 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="text-xl font-light text-white"
+          {/* Brand with Logo */}
+          <motion.a
+            href="#home"
+            onClick={(e) => { e.preventDefault(); scrollToSection('#home'); }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="flex items-center gap-3 text-xl font-light text-white focus:outline-none focus:ring-2 focus:ring-[#9ECAD6] rounded-full"
           >
-            <span className="text-[#9ECAD6]">Omatule</span> Marvellous
-          </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05, filter: "drop-shadow(0 0 12px rgba(171,223,232,0.8))" }}
+              transition={{ duration: 0.25 }}
+              className="relative w-8 h-8 rounded-full overflow-hidden bg-white/5 border border-white/10"
+            >
+              <img
+                src="/logo.png"
+                alt="Omatule Marvellous logo"
+                className="w-full h-full object-contain"
+                loading="lazy"
+              />
+              <motion.span
+                aria-hidden="true"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 1 }}
+                className="pointer-events-none absolute inset-0 rounded-full"
+                style={{ boxShadow: "0 0 24px 6px rgba(171,223,232,0.55)" }}
+              />
+            </motion.div>
+            <span><span className="text-[#9ECAD6]">Omatule</span> Marvellous</span>
+          </motion.a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
@@ -62,7 +85,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 * index }}
                 onClick={() => scrollToSection(item.href)}
-                className="relative text-white/80 hover:text-[#9ECAD6] transition-colors duration-300 text-sm font-light"
+                className="relative text-white/80 hover:text-[#9ECAD6] transition-colors duration-300 text-sm font-light focus:outline-none focus:ring-2 focus:ring-[#9ECAD6] rounded"
                 whileHover={{ y: -2 }}
               >
                 <span>{item.name}</span>
@@ -78,7 +101,8 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-white focus:outline-none focus:ring-2 focus:ring-[#9ECAD6] rounded"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <Icon
@@ -103,7 +127,7 @@ export default function Navbar() {
               <motion.button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="block w-full text-left text-white/80 hover:text-[#9ECAD6] transition-colors duration-300 py-2 text-sm"
+                className="block w-full text-left text-white/80 hover:text-[#9ECAD6] transition-colors duration-300 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#9ECAD6] rounded"
                 whileHover={{ x: 10 }}
               >
                 <span>{item.name}</span>
