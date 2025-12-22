@@ -16,15 +16,22 @@ export default function Icon() {
     style={{
       width: '100%',
       height: '100%',
-      display: 'flex'
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: '#ABDFE8',
+      borderRadius: 34,
+      padding: 20
     }}>
 
-        <img data-editor-id="app/apple-icon.tsx:22:9"
-      src="https://storage.googleapis.com/cosmic-project-image-assets/images/c14a2256-a303-4bac-a5fb-bb9e62cd4f1a/favicon.png"
+        <img data-editor-id="app/apple-icon.tsx:26:9"
+      src="https://storage.googleapis.com/cosmic-project-image-assets/images/96cb9b53-36b3-44ee-9010-43e45b24d708/marvellous-benji-high-resolution-logo-transparent_1.png"
+      alt="Omatule Marvellous logo"
       style={{
         width: '100%',
         height: '100%',
-        objectFit: 'contain'
+        objectFit: 'contain',
+        filter: 'drop-shadow(0 0 10px rgba(158,202,214,0.6))'
       }} />
 
       </div>,
