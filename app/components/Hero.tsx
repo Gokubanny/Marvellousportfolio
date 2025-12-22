@@ -81,8 +81,8 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <motion.a
-            href="/cv.pdf"
-            download="Omatule_Marvellous_CV.pdf"
+            href="/MyCV.docx"
+            download="Omatule_Marvellous_CV.docx"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
             className="group relative px-8 py-3 bg-gradient-to-r from-[#9ECAD6] to-[#84D9E4] text-black font-medium rounded-full overflow-hidden transition-all duration-300 flex items-center gap-2"
