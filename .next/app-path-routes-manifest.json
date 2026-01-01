@@ -1,0 +1,7 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/icon/route": "/icon",
+  "/apple-icon/route": "/apple-icon",
+  "/api/health/route": "/api/health",
+  "/page": "/"
+}
