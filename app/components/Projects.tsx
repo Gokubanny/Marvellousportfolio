@@ -54,11 +54,13 @@ function ProjectCard({ project, delay, onClick }: ProjectCardProps) {
 
                 {/* Project Image Placeholder */}
                 <div className="relative h-48 bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
-                    <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
+                    {project.image && (
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 </div>
 
@@ -160,11 +162,13 @@ function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                         <div className="p-8">
                             {/* Project Image */}
                             <div className="relative h-66 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl flex items-center justify-center mb-6">
-                                <img
-                                    src={project.image}
-                                    alt={project.title}
-                                    className="w-full h-full object-cover"
-                                />
+                                {project.image && (
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover"
+                                    />
+                                )}
                                 <div className={`absolute inset-0 ${project.gradient} opacity-20 rounded-2xl`} />
                             </div>
 
