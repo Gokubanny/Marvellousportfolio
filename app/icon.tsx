@@ -1,6 +1,8 @@
 // Never use @iconify/react inside this file.
 import { ImageResponse } from 'next/og';
 
+export const dynamic = 'force-static';
+
 export const size = {
   width: 64,
   height: 64
