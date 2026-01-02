@@ -13,8 +13,10 @@ export const middleware = createAuthMiddleware({
 });
 
 // Use the default matcher config or customize as needed
+// Configure middleware to run on Node.js runtime instead of Edge
 export const config = {
   matcher: [
     '/((?!_next/static|_next/image|api/|login|callback|auth/|images/|fonts/|static/|public/|favicon.ico).*)',
-  ]
+  ],
+  runtime: 'nodejs',
 };
