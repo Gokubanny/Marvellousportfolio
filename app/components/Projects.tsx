@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Icon } from "@iconify/react";
+import Image from "next/image";
 
 interface Project {
     id: number;
@@ -55,9 +56,11 @@ function ProjectCard({ project, delay, onClick }: ProjectCardProps) {
                 {/* Project Image Placeholder */}
                 <div className="relative h-48 bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
                     {project.image && (
-                        <img
+                        <Image
                             src={project.image}
                             alt={project.title}
+                            width={400}
+                            height={192}
                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                         />
                     )}
@@ -163,9 +166,11 @@ function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
                             {/* Project Image */}
                             <div className="relative h-66 bg-gradient-to-br from-white/10 to-white/5 rounded-2xl flex items-center justify-center mb-6">
                                 {project.image && (
-                                    <img
+                                    <Image
                                         src={project.image}
                                         alt={project.title}
+                                        width={400}
+                                        height={192}
                                         className="w-full h-full object-cover"
                                     />
                                 )}

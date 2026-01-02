@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Icon } from "@iconify/react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,11 +60,12 @@ export default function Navbar() {
               transition={{ duration: 0.25 }}
               className="relative w-8 h-8 rounded-full overflow-hidden bg-white/5 border border-white/10"
             >
-              <img
+              <Image
                 src="/logo.png"
                 alt="Omatule Marvellous logo"
+                width={32}
+                height={32}
                 className="w-full h-full object-contain"
-                loading="lazy"
               />
               <motion.span
                 aria-hidden="true"

@@ -58,7 +58,7 @@ export default function Contact() {
         setResult("Error submitting form. Please try again.");
         setTimeout(() => setResult(""), 3000);
       }
-    } catch (error) {
+    } catch {
       setResult("Error submitting form. Please try again.");
       setTimeout(() => setResult(""), 3000);
     } finally {
