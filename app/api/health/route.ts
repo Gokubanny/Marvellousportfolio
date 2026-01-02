@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
-// Remove force-static to allow dynamic rendering
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 export async function GET() {
   return NextResponse.json({ 
