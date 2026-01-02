@@ -10,9 +10,9 @@ export default function Footer() {
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
   const socialLinks = [
-    { icon: "mdi:github", href: "https://github.com", label: "GitHub" },
-    { icon: "mdi:linkedin", href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: "ic:baseline-email", href: "mailto:omatule.marvellous@email.com", label: "Email" },
+    { icon: "mdi:github", href: "https://github.com/Gokubanny", label: "GitHub" },
+    { icon: "mdi:linkedin", href: "www.linkedin.com/in/marvellous-benji", label: "LinkedIn" },
+    { icon: "ic:baseline-email", href: "mailto:omatulemarvellous721@email.com", label: "Email" },
   ];
 
   const scrollToTop = () => {

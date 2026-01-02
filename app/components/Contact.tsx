@@ -9,6 +9,9 @@ export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [result, setResult] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,28 +26,62 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsLoading(true);
+    setResult("Sending....");
+
+    const formDataToSend = new FormData(e.currentTarget);
+    formDataToSend.append("access_key", "c52da552-cade-4c92-bc0e-3698afdc8d6f");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSend
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        setShowSuccessModal(true);
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        setTimeout(() => {
+          setResult("");
+          setShowSuccessModal(false);
+        }, 4000);
+      } else {
+        setResult("Error submitting form. Please try again.");
+        setTimeout(() => setResult(""), 3000);
+      }
+    } catch (error) {
+      setResult("Error submitting form. Please try again.");
+      setTimeout(() => setResult(""), 3000);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const socialLinks = [
     {
       name: "GitHub",
-      url: "https://github.com",
+      url: "https://github.com/Gokubanny",
       icon: "mdi:github",
       color: "hover:text-[#9ECAD6]",
     },
     {
       name: "LinkedIn", 
-      url: "https://linkedin.com",
+      url: "www.linkedin.com/in/marvellous-benji",
       icon: "mdi:linkedin",
       color: "hover:text-[#84D9E4]",
     },
     {
       name: "Email",
-      url: "mailto:omatule.marvellous@email.com",
+      url: "mailto:omatulemarvellous721@gmail.com",
       icon: "ic:baseline-email",
       color: "hover:text-[#AADCD4]",
     },
@@ -209,11 +246,12 @@ export default function Contact() {
                 >
                   <motion.button
                     type="submit"
-                    whileHover={{ scale: 1.02, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="group relative w-full px-8 py-4 bg-gradient-to-r from-[#9ECAD6] to-[#84D9E4] text-black font-medium rounded-xl overflow-hidden transition-all duration-300 flex items-center justify-center gap-2"
+                    disabled={isLoading}
+                    whileHover={{ scale: isLoading ? 1 : 1.02, y: isLoading ? 0 : -2 }}
+                    whileTap={{ scale: isLoading ? 1 : 0.98 }}
+                    className="group relative w-full px-8 py-4 bg-gradient-to-r from-[#9ECAD6] to-[#84D9E4] text-black font-medium rounded-xl overflow-hidden transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70"
                   >
-                    <span className="relative z-10">Send Message</span>
+                    <span className="relative z-10">{isLoading ? "Sending..." : "Send Message"}</span>
                     <Icon 
                       icon="material-symbols:send" 
                       className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" 
@@ -221,11 +259,40 @@ export default function Contact() {
                     <div className="absolute inset-0 bg-gradient-to-r from-[#ABDFE8] to-[#AADCD4] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </motion.button>
                 </motion.div>
+
+                {/* Result Message */}
+                {result && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className={`text-center py-3 px-4 rounded-lg font-medium ${
+                      result === "Form Submitted Successfully"
+                        ? "bg-green-500/20 text-green-400 border border-green-500/30"
+                        : result === "Sending...."
+                        ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
+                        : "bg-red-500/20 text-red-400 border border-red-500/30"
+                    }`}
+                  >
+                    {result}
+                  </motion.div>
+                )}
               </form>
             </div>
           </motion.div>
         </div>
       </div>
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
+          <div className="bg-white rounded-lg p-6 text-center">
+            <Icon icon="mdi:check-circle" className="w-12 h-12 text-green-500 mx-auto mb-4" />
+            <h3 className="text-lg font-medium text-gray-800">Success!</h3>
+            <p className="text-gray-600">Your message has been sent successfully.</p>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

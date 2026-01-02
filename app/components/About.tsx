@@ -9,10 +9,12 @@ export default function About() {
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const skills = [
-    { name: "JavaScript", level: 90 },
-    { name: "React", level: 85 },
+    { name: "HTML", level: 85 },
+    { name: "CSS", level: 90 },
+    { name: "JavaScript", level: 78 },
+    { name: "React", level: 90 },
     { name: "Node.js", level: 80 },
-    { name: "APIs", level: 88 },
+    { name: "APIs", level: 85 },
   ];
 
   return (

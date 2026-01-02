@@ -126,62 +126,62 @@ export default function Experience() {
   const experiences = [
     {
       title: "Full-Stack Developer Intern",
-      organization: "TechCorp Solutions",
-      date: "2024 - Present",
+      organization: "SOI Consulting Ltd",
+      date: "2026 - Present",
       description: [
-        "Developed responsive web applications using React and Node.js",
-        "Collaborated with cross-functional teams to deliver scalable solutions",
-        "Implemented REST APIs and database optimization techniques"
+        "Building responsive web applications and solutions",
+        "Learning modern development practices and technologies",
+        "Contributing to client projects and gaining real-world experience"
       ],
       icon: "material-symbols:work",
       isLeft: true,
     },
     {
-      title: "React Developer",
-      organization: "StartupXYZ",
-      date: "2023 - 2024",
+      title: "Computer Science (400 Level)",
+      organization: "University of Port Harcourt",
+      date: "2022 - Present",
       description: [
-        "Built interactive user interfaces with React and TypeScript",
-        "Optimized application performance and user experience",
-        "Participated in code reviews and maintained clean coding standards"
+        "Final year student pursuing Bachelor's degree in Computer Science",
+        "Studying advanced algorithms, data structures, and software engineering",
+        "Applying theoretical knowledge to practical development projects"
       ],
-      icon: "material-symbols:code",
+      icon: "material-symbols:school",
       isLeft: false,
     },
     {
-      title: "Hackathon Winner",
-      organization: "CodeFest 2023",
-      date: "October 2023",
+      title: "Hackathon Winner - 2nd Place",
+      organization: "GoMyCode x Africa's Talking Hackathon",
+      date: "July 2025",
       description: [
-        "Led a team to develop an innovative productivity application",
-        "Implemented real-time collaboration features using WebSocket",
-        "Won first place among 50+ competing teams"
+        "Competed solo in a competitive hackathon environment",
+        "Developed a complete project from concept to implementation",
+        "Secured 2nd place among all participants"
       ],
       icon: "material-symbols:trophy",
       isLeft: true,
     },
     {
-      title: "Open Source Contributor",
-      organization: "Various Projects",
-      date: "2022 - Present",
+      title: "Software Development Bootcamp",
+      organization: "GoMyCode",
+      date: "2025",
       description: [
-        "Contributed to multiple open-source JavaScript libraries",
-        "Fixed bugs and implemented new features for community projects",
-        "Maintained high code quality and documentation standards"
+        "Completed intensive software development program",
+        "Mastered full-stack development technologies and practices",
+        "Built multiple projects throughout the bootcamp"
       ],
-      icon: "mdi:github",
+      icon: "material-symbols:code",
       isLeft: false,
     },
     {
-      title: "Web Development Bootcamp",
-      organization: "CodeAcademy Pro",
+      title: "Frontend Development Fundamentals",
+      organization: "Divine Learning Hub",
       date: "2022",
       description: [
-        "Completed intensive full-stack development program",
-        "Mastered modern web technologies and frameworks",
-        "Built 10+ projects showcasing various skills and technologies"
+        "Learned HTML, CSS, and JavaScript fundamentals",
+        "Built static and interactive web pages",
+        "Developed foundational web development skills"
       ],
-      icon: "material-symbols:school",
+      icon: "mdi:web",
       isLeft: true,
     },
   ];
