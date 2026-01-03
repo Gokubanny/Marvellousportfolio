@@ -12,7 +12,7 @@ const primaryFont = Geist({
 // Change the title and description to your own.
 export const metadata: Metadata = {
   title: "Omatule Marvellous - Full-Stack Developer",
-  description: "Premium 3D animated portfolio showcasing full-stack development skills, projects, and experience in modern web technologies."
+  description: "Full-stack developer portfolio showcasing projects, skills, and experience in modern web technologies."
 };
 
 export default function RootLayout({
