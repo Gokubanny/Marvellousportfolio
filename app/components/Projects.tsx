@@ -242,6 +242,7 @@ export default function Projects() {
     const isInView = useInView(ref, { once: true, amount: 0.2 });
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [visibleProjects, setVisibleProjects] = useState(6);
 
     const projects: Project[] = [
         {
@@ -268,7 +269,7 @@ export default function Projects() {
         },
         {
             id: 3,
-            title: "Grave Haven — Fashion Marketplace",
+            title: "Grave Haven",
             description: "Modern boutique website with online booking, inventory management system, for designers and customers.",
             longDescription: "A full-stack fashion marketplace with real-time messaging, appointment booking, and inventory management for designers and customers.",
             techStack: ["TypeScript", "Tailwind CSS", "MongoDB", "REST API", "Express.js", "Responsive Design"],        
@@ -290,13 +291,46 @@ export default function Projects() {
         },
         {
             id: 5,
-            title: "HopeBridge Foundation — NGO Platform",
+            title: "HopeBridge Foundation",
             description: "Modern NGO website for connecting donors and volunteers with donation and awareness features.",
             longDescription: "A modern and responsive NGO website built to help HopeBridge Foundation connect with donors and volunteers. It includes a clean design, donation form, and awareness-focused layout.",
             techStack: ["Next.js", "Tailwind CSS"],
             liveDemo: "https://hopebridge-foundation.onrender.com",
             github: "https://github.com/Gokubanny/HopeBridge-Foundation.git",
             image: "https://res.cloudinary.com/dxpquojo2/image/upload/v1767317819/image_w71kek.png",
+            gradient: "bg-gradient-to-br from-[#9ECAD6] to-[#AADCD4]",
+        },
+        {
+            id: 6,
+            title: "Medi-core",
+            description: "Enterprise-grade hospital management platform with multi-tenant architecture and role-based access.",
+            longDescription: "MediCore is Nigeria's leading enterprise-grade hospital management platform. Streamline operations, improve patient care, and scale your healthcare organization with complete data isolation and role-based access control. Multi-Tenant Architecture, 24/7 Priority Support, Free Data Migration.",
+            techStack: ["Typescript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+            liveDemo: "https://medi-core.onrender.com",
+            github: "https://github.com/Gokubanny/Medi-core.git",
+            image: "https://res.cloudinary.com/dxpquojo2/image/upload/v1776404896/hms_f4bngw.png",
+            gradient: "bg-gradient-to-br from-[#9ECAD6] to-[#AADCD4]",
+        },
+        {
+            id: 7,
+            title: "NexfordEdu",
+            description: "Enterprise-grade online learning platform with AI-powered learning and biometric attendance.",
+            longDescription: "An enterprise-grade platform with AI-powered learning, biometric attendance, and comprehensive academic management for modern institutions. Features include AI-Powered Learning, Biometric Attendance System, and Real-time Analytics Dashboard.",
+            techStack: ["Typescript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+            liveDemo: "https://nexford-edu.onrender.com",
+            github: "https://github.com/Gokubanny/NexfordEdu.git",
+            image: "https://res.cloudinary.com/dxpquojo2/image/upload/v1776404896/nex_m3deop.png",
+            gradient: "bg-gradient-to-br from-[#84D9E4] to-[#9ECAD6]",
+        },
+        {
+            id: 8,
+            title: "Novus Address Verification System",
+            description: "Modern online platform for enhancing security and efficiency in address verification.",
+            longDescription: "An advanced address verification system designed to streamline the process of verifying user addresses in real-time. Features include AI-powered validation, comprehensive address database, and seamless integration with existing systems.",
+            techStack: ["Typescript", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+            liveDemo: "https://novus-vy80.onrender.co",
+            github: "https://github.com/Gokubanny/HopeBridge-Foundation.git",
+            image: "https://res.cloudinary.com/dxpquojo2/image/upload/v1776404858/novus_iygd53.png",
             gradient: "bg-gradient-to-br from-[#9ECAD6] to-[#AADCD4]",
         },
     ];
@@ -309,6 +343,10 @@ export default function Projects() {
     const closeModal = () => {
         setIsModalOpen(false);
         setSelectedProject(null);
+    };
+
+    const loadMoreProjects = () => {
+        setVisibleProjects(prev => prev + 3);
     };
 
     return (
@@ -332,7 +370,7 @@ export default function Projects() {
 
                 {/* Projects Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
+                    {projects.slice(0, visibleProjects).map((project, index) => (
                         <ProjectCard
                             key={project.id}
                             project={project}
@@ -341,6 +379,24 @@ export default function Projects() {
                         />
                     ))}
                 </div>
+
+                {/* View More Button */}
+                {visibleProjects < projects.length && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="flex justify-center mt-16"
+                    >
+                        <motion.button
+                            onClick={loadMoreProjects}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="px-8 py-3 bg-gradient-to-r from-[#9ECAD6] to-[#84D9E4] text-black font-medium rounded-full hover:from-[#ABDFE8] hover:to-[#AADCD4] transition-all duration-300 shadow-lg"
+                        >
+                            View More Projects
+                        </motion.button>
+                    </motion.div>
+                )}
 
                 {/* Project Modal */}
                 <ProjectModal
