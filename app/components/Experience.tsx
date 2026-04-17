@@ -124,18 +124,18 @@ export default function Experience() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   const experiences = [
-    {
-      title: "Full-Stack Developer Intern",
-      organization: "SOI Consulting Ltd",
-      date: "2026 - Present",
-      description: [
-        "Building responsive web applications and solutions",
-        "Learning modern development practices and technologies",
-        "Contributing to client projects and gaining real-world experience"
-      ],
-      icon: "material-symbols:work",
-      isLeft: true,
-    },
+    // {
+    //   title: "Full-Stack Developer Intern",
+    //   organization: "SOI Consulting Ltd",
+    //   date: "2026 - Present",
+    //   description: [
+    //     "Building responsive web applications and solutions",
+    //     "Learning modern development practices and technologies",
+    //     "Contributing to client projects and gaining real-world experience"
+    //   ],
+    //   icon: "material-symbols:work",
+    //   isLeft: true,
+    // },
     {
       title: "Computer Science (400 Level)",
       organization: "University of Port Harcourt",
