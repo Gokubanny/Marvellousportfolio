@@ -253,7 +253,7 @@ export default function Projects() {
             techStack: ["React", "Node.js", "MongoDB", "Express", "JWT", "Chart.js"],
             liveDemo: "https://staff-hive.onrender.com",
             github: "https://github.com/Gokubanny/Staff-Hive.git",
-            image: "https://res.cloudinary.com/dxpquojo2/image/upload/v1766412165/staffhive_ys0n8e.png",
+            image: "https://res.cloudinary.com/dxpquojo2/image/upload/v1778792266/hive_azhuuk.png",
             gradient: "bg-gradient-to-br from-[#9ECAD6] to-[#84D9E4]",
         },
         {
